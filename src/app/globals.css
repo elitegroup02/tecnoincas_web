@@ -1,0 +1,330 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+  Palette CSS Variables for all 4 palettes
+  Each palette has its own selector: .theme-<palette>-light and .theme-<palette>-dark
+*/
+:root {
+  /* Default: Sun & Stone Light */
+  --primary: #FFD700;
+  --primary-dark: #E6B800;
+  --accent: #808080;
+  --accent-dark: #C0C0C0;
+  --background: #FFFBEA;
+  --surface: #F2F2F2;
+  --surface-variant: #F2F2F2;
+  --text-primary: #1A1A1A;
+  --text-secondary: #4a4a4a;
+  --text-muted: #6c757d;
+  --border: #e9ecef;
+}
+
+.theme-sun-stone-light {
+  --primary: #FFD700;
+  --primary-dark: #E6B800;
+  --accent: #808080;
+  --accent-dark: #C0C0C0;
+  --background: #FFFBEA;
+  --surface: #F2F2F2;
+  --surface-variant: #F2F2F2;
+  --text-primary: #1A1A1A;
+  --text-secondary: #4a4a4a;
+  --text-muted: #6c757d;
+  --border: #e9ecef;
+}
+
+.theme-sun-stone-dark {
+  --primary: #E6B800;
+  --primary-dark: #FFD700;
+  --accent: #C0C0C0;
+  --accent-dark: #808080;
+  --background: #1A1A1A;
+  --surface: #2B2B2B;
+  --surface-variant: #2B2B2B;
+  --text-primary: #FFFBEA;
+  --text-secondary: #C0C0C0;
+  --text-muted: #a0a0a0;
+  --border: #333333;
+}
+
+.theme-mountain-earth-light {
+  --primary: #B25E34;
+  --primary-dark: #8B4000;
+  --accent: #E6B800;
+  --accent-dark: #FFD700;
+  --background: #FCF3ED;
+  --surface: #EEE2D6;
+  --surface-variant: #EEE2D6;
+  --text-primary: #3B2314;
+  --text-secondary: #8B4000;
+  --text-muted: #B25E34;
+  --border: #e9ecef;
+}
+
+.theme-mountain-earth-dark {
+  --primary: #8B4000;
+  --primary-dark: #B25E34;
+  --accent: #FFD700;
+  --accent-dark: #E6B800;
+  --background: #1E120A;
+  --surface: #2A1A12;
+  --surface-variant: #2A1A12;
+  --text-primary: #FCF3ED;
+  --text-secondary: #FFD700;
+  --text-muted: #B25E34;
+  --border: #333333;
+}
+
+.theme-royal-sky-light {
+  --primary: #800080;
+  --primary-dark: #99004C;
+  --accent: #40E0D0;
+  --accent-dark: #00BFFF;
+  --background: #F4F0FA;
+  --surface: #E6E0F2;
+  --surface-variant: #E6E0F2;
+  --text-primary: #1A1324;
+  --text-secondary: #800080;
+  --text-muted: #6c757d;
+  --border: #e9ecef;
+}
+
+.theme-royal-sky-dark {
+  --primary: #99004C;
+  --primary-dark: #800080;
+  --accent: #00BFFF;
+  --accent-dark: #40E0D0;
+  --background: #1A1324;
+  --surface: #2B1F3B;
+  --surface-variant: #2B1F3B;
+  --text-primary: #F4F0FA;
+  --text-secondary: #40E0D0;
+  --text-muted: #a0a0a0;
+  --border: #333333;
+}
+
+.theme-sacred-valley-light {
+  --primary: #228B22;
+  --primary-dark: #556B2F;
+  --accent: #FFD700;
+  --accent-dark: #E6B800;
+  --background: #F5FFF5;
+  --surface: #E0F0E0;
+  --surface-variant: #E0F0E0;
+  --text-primary: #0F1C0F;
+  --text-secondary: #228B22;
+  --text-muted: #556B2F;
+  --border: #e9ecef;
+}
+
+.theme-sacred-valley-dark {
+  --primary: #556B2F;
+  --primary-dark: #228B22;
+  --accent: #E6B800;
+  --accent-dark: #FFD700;
+  --background: #0F1C0F;
+  --surface: #1E2F1E;
+  --surface-variant: #1E2F1E;
+  --text-primary: #F5FFF5;
+  --text-secondary: #FFD700;
+  --text-muted: #a0a0a0;
+  --border: #333333;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 251, 234; /* #FFFBEA */
+    --background-start-rgb: 26, 26, 26; /* #1A1A1A */
+    --background-end-rgb: 26, 26, 26; /* #1A1A1A */
+  }
+}
+
+/* Base body styles */
+body {
+  background-color: var(--background);
+  color: var(--text-primary);
+  font-family: theme(fontFamily.primary);
+}
+
+/* Inca-inspired designs */
+.inca-sun {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, var(--primary), var(--accent), var(--primary-dark));
+  border-radius: 50%;
+  position: relative;
+}
+
+.inca-sun::before {
+  content: '';
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  right: 10%;
+  bottom: 10%;
+  background: conic-gradient(from 0deg, transparent 0deg, var(--primary) 30deg, transparent 60deg, var(--accent) 90deg, transparent 120deg, var(--primary) 150deg, transparent 180deg, var(--accent) 210deg, transparent 240deg, var(--primary) 270deg, transparent 300deg, var(--accent) 330deg, transparent 360deg);
+  border-radius: 50%;
+  opacity: 0.7;
+}
+
+.inca-chakana {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, var(--accent), var(--primary));
+  clip-path: polygon(40% 0%, 60% 0%, 60% 40%, 100% 40%, 100% 60%, 60% 60%, 60% 100%, 40% 100%, 40% 60%, 0% 60%, 0% 40%, 40% 40%);
+}
+
+.inca-center {
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, var(--primary-dark), transparent);
+  border-radius: 50%;
+}
+
+.inca-chakana-about {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  clip-path: polygon(30% 0%, 70% 0%, 70% 30%, 100% 30%, 100% 70%, 70% 70%, 70% 100%, 30% 100%, 30% 70%, 0% 70%, 0% 30%, 30% 30%);
+}
+
+/* Legacy Inca-themed geometric patterns (for backward compatibility) */
+.inca-pattern-1 {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+}
+
+.inca-pattern-2 {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(225deg, var(--primary), var(--accent));
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+}
+
+/* Ensure html and body take full height for sticky footer if needed */
+html, body {
+  height: 100%;
+}
+
+#root, #__next {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex-grow: 1;
+}
+
+/* Component classes using @layer to ensure proper Tailwind functionality */
+@layer components {
+  /* Skip link for accessibility */
+  .skip-link {
+    @apply absolute -top-10 left-1.5 z-[1000] p-2 bg-primary text-white no-underline rounded-md transition-all duration-150 ease-in-out;
+  }
+
+  .skip-link:focus {
+    @apply top-1.5;
+  }
+
+  /* Basic section styling */
+  .section-padding {
+    @apply py-16 md:py-24;
+  }
+
+  .section-header {
+    @apply text-center mb-12 md:mb-16;
+  }
+
+  .section-title {
+    @apply text-3xl md:text-4xl font-semibold mb-4;
+  }
+
+  .section-subtitle {
+    @apply text-lg md:text-xl max-w-2xl mx-auto;
+    color: var(--text-secondary);
+  }
+
+  /* Button variants */
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 border border-transparent rounded-md font-medium text-base transition-colors duration-150 ease-in-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2;
+  }
+
+  .btn-primary {
+    @apply text-white shadow-sm disabled:opacity-60 disabled:cursor-not-allowed;
+    background: linear-gradient(to right, var(--primary), var(--primary-dark));
+  }
+
+  .btn-primary:hover {
+    background: linear-gradient(to right, var(--primary-dark), var(--primary));
+  }
+
+  .btn-secondary {
+    @apply bg-transparent disabled:opacity-60 disabled:cursor-not-allowed;
+    color: var(--text-primary);
+    border-color: var(--border);
+  }
+
+  .btn-secondary:hover {
+    color: var(--primary);
+    border-color: var(--primary);
+  }
+
+  .btn-icon {
+    @apply p-0 w-10 h-10 rounded-full disabled:opacity-60 disabled:cursor-not-allowed;
+    background-color: var(--surface-variant);
+    border: 1px solid var(--border);
+  }
+
+  .btn-icon:hover:not(:disabled) {
+    background-color: var(--primary);
+    color: white;
+    border-color: var(--primary);
+  }
+
+  /* Header scroll effect */
+  .header-scrolled {
+    @apply shadow-md bg-opacity-95 backdrop-blur-md;
+  }
+
+  /* Mobile menu open */
+  .mobile-menu-open .hamburger span:first-child {
+    @apply rotate-45 translate-y-[7px];
+  }
+  .mobile-menu-open .hamburger span:nth-child(2) {
+    @apply opacity-0;
+  }
+  .mobile-menu-open .hamburger span:last-child {
+    @apply -rotate-45 -translate-y-[7px];
+  }
+
+  /* Service card hover effect */
+  .service-card {
+    @apply relative;
+  }
+
+  .service-card::before {
+    content: '';
+    @apply absolute top-0 left-0 right-0 h-1 scale-x-0 transition-transform duration-250 ease-in-out;
+    background: linear-gradient(to right, var(--primary), var(--accent));
+  }
+  .service-card:hover::before {
+    @apply scale-x-100;
+  }
+
+  /* Animations for scroll effects */
+  .animate-fade-in-up {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+  }
+
+  .animate-fade-in-up.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
