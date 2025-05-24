@@ -5,9 +5,7 @@ const nextConfig: NextConfig = {
   trailingSlash: true,
   images: {
     unoptimized: true,
-  },
-  basePath: process.env.NODE_ENV === 'production' ? '/tecnoincas_web' : '',
-  assetPrefix: process.env.NODE_ENV === 'production' ? '/tecnoincas_web/' : '',
+  }
 };
 
 export default nextConfig;
