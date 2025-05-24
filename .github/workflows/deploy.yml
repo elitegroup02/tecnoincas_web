@@ -49,7 +49,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: "20" # Specify your Node.js version
+          node-version: "22" # Specify your Node.js version
           cache: ${{ steps.detect-package-manager.outputs.manager }}
 
       # Optional: If you have a basePath in next.config.mjs, uncomment and set it here
@@ -59,10 +59,11 @@ jobs:
       - name: Install dependencies
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
 
-      - name: Build with Next.js
-        run: ${{ steps.detect-package-manager.outputs.runner }} next build
-        # env:
-        #   BASE_PATH: ${{ env.BASE_PATH }} # Pass basePath to build if set
+      - name: Build and Export with Next.js
+        run: |
+          ${{ steps.detect-package-manager.outputs.runner }} next build
+          ${{ steps.detect-package-manager.outputs.runner }} next export
+
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
