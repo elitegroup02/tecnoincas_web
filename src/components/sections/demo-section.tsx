@@ -1,5 +1,6 @@
 "use client";
 import {LanguageToggleButton} from '@/components/ui/language-toggle-button';
+import Logo from '@/components/ui/logo';
 import {ThemePaletteSelector} from '@/components/ui/theme-palette-selector';
 import {ThemeToggleButton} from '@/components/ui/theme-toggle-button';
 import {useLanguage} from '@/context/language-context';
@@ -111,15 +112,30 @@ export default function DemoSection() {
               <ThemePaletteSelector />
             </div>
           </div>
-        </div>
-
-        {/* Current Configuration Display */}
+        </div>        {/* Current Configuration Display */}
         <div className="bg-gradient-to-r from-primary/10 to-accent/10 dark:from-primary-light/10 dark:to-accent/10 rounded-xl p-8 border border-primary/20 dark:border-primary-light/20">
-          <h3 className="text-2xl font-bold mb-6 text-center text-text-primary dark:text-dark-text-primary">
-            {t({ en: "Current Configuration", es: "Configuración Actual" })}
-          </h3>
+          <div className="text-center mb-6">
+            <h3 className="text-2xl font-bold text-text-primary dark:text-dark-text-primary">
+              {t({ en: "Current Configuration", es: "Configuración Actual" })}
+            </h3>
+          </div>          <div className="grid md:grid-cols-3 gap-8">
+            {/* Logo Display */}
+            <div className="space-y-4">
+              <div className="flex flex-col items-center justify-center space-y-4 p-6 bg-surface dark:bg-dark-surface rounded-lg min-h-[200px]">
+                <Logo
+                  size={64}
+                  animate={true}
+                  className="opacity-90 hover:opacity-100 transition-opacity duration-300"
+                />
+                <p className="text-sm text-text-secondary dark:text-dark-text-secondary text-center">
+                  {t({
+                    en: "Watch how the logo adapts to different themes and modes",
+                    es: "Observa cómo el logo se adapta a diferentes temas y modos"
+                  })}
+                </p>
+              </div>
+            </div>
 
-          <div className="grid md:grid-cols-2 gap-8">
             {/* Status Info */}
             <div className="space-y-4">
               <div className="flex items-center justify-between p-3 bg-surface dark:bg-dark-surface rounded-lg">
