@@ -1,10 +1,10 @@
 "use client";
 import {LanguageToggleButton} from '@/components/ui/language-toggle-button';
+import Logo from '@/components/ui/logo';
 import {ThemePaletteSelector} from '@/components/ui/theme-palette-selector';
 import {ThemeToggleButton} from '@/components/ui/theme-toggle-button';
 import {useLanguage} from '@/context/language-context';
 import {Bars3Icon, XMarkIcon} from '@heroicons/react/24/outline';
-import Image from 'next/image';
 import Link from 'next/link';
 import {useEffect, useState} from 'react';
 
@@ -54,9 +54,9 @@ export default function Header() {
     >
       <nav className="container py-3 md:py-4">
         <div className="flex items-center justify-between">          <Link href="/" className="flex items-center gap-2 text-xl font-bold text-text-primary dark:text-dark-text-primary">
-            <Image src="/logo.svg" alt="TecnoIncas Logo" width={32} height={32} />
+            <Logo size={32} className="flex-shrink-0" />
             <span>TecnoIncas</span>
-          </Link>          <div className="hidden md:flex items-center space-x-6">
+          </Link><div className="hidden md:flex items-center space-x-6">
             {navLinks.map((link) => (
               <button
                 key={link.en}

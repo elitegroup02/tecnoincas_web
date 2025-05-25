@@ -1,5 +1,6 @@
 'use client';
 
+import Logo from '@/components/ui/logo';
 import {useLanguage} from '@/context/language-context';
 import Link from 'next/link';
 
@@ -22,11 +23,10 @@ export default function Footer() {
   return (
     <footer className="bg-text-primary dark:bg-dark-surface text-background dark:text-dark-text-primary section-padding pb-8">
       <div className="container">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 mb-8 md:mb-12">
-          {/* Brand */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 mb-8 md:mb-12">          {/* Brand */}
           <div className="md:col-span-1">
             <Link href="/" className="flex items-center gap-2 text-xl font-bold mb-3">
-                <span className="text-2xl">⚡</span>
+                <Logo size={24} className="flex-shrink-0" />
                 <span>TecnoIncas</span>
             </Link>
             <p className="text-sm text-text-muted dark:text-dark-text-muted">

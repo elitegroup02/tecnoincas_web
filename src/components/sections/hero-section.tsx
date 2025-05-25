@@ -1,4 +1,5 @@
 "use client";
+import Logo from '@/components/ui/logo';
 import {useLanguage} from '@/context/language-context';
 import Link from 'next/link';
 
@@ -29,38 +30,16 @@ export default function HeroSection() {
             <Link href="#contact" className="btn btn-secondary">
               {t({ en: "Get in Touch", es: "Contáctanos" })}
             </Link>
-          </div>        </div>
-
-        {/* Inca Patterns - Now responsive for all screen sizes */}
+          </div>        </div>        {/* Logo with dynamic animation */}
         <div className="flex justify-center items-center mt-8 md:mt-0">
-          <div className="w-48 h-48 sm:w-56 sm:h-56 md:w-72 md:h-72 lg:w-96 lg:h-96 relative">
-            {/* Main Inca Sun (Inti) */}
-            <div className="inca-sun absolute inset-0 opacity-90 animate-rotate-slow"></div>
-            {/* Inner geometric pattern */}
-            <div className="inca-chakana absolute inset-8 sm:inset-10 md:inset-12 opacity-70 animate-pulse-gentle"></div>
-            {/* Central symbol */}
-            <div className="inca-center absolute inset-1/3 opacity-80 animate-pulse-gentle animation-delay-500"></div>
+          <div className="w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96 lg:w-[28rem] lg:h-[28rem] relative">
+            <Logo
+              size="100%"
+              animate={true}
+              className="absolute inset-0 w-full h-full opacity-90 hover:opacity-100 transition-opacity duration-500"
+            />
           </div>
-        </div>
-      </div>      <style jsx>{`
-        .animate-pulse-gentle {
-          animation: pulse-gentle 4s ease-in-out infinite;
-        }
-        .animate-rotate-slow {
-          animation: rotate-slow 30s linear infinite;
-        }
-        .animation-delay-500 {
-          animation-delay: 0.5s;
-        }
-        @keyframes pulse-gentle {
-          0%, 100% { opacity: 0.7; transform: scale(1); }
-          50% { opacity: 1; transform: scale(1.02); }
-        }
-        @keyframes rotate-slow {
-          from { transform: rotate(0deg); }
-          to { transform: rotate(360deg); }
-        }
-      `}</style>
+        </div></div>
     </section>
   );
 }
