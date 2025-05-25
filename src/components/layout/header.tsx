@@ -54,7 +54,7 @@ export default function Header() {
     >
       <nav className="container py-3 md:py-4">
         <div className="flex items-center justify-between">          <Link href="/" className="flex items-center gap-2 text-xl font-bold text-text-primary dark:text-dark-text-primary">
-            <Image src="/inca_logo_2.svg" alt="TecnoIncas Logo" width={32} height={32} />
+            <Image src="/logo.svg" alt="TecnoIncas Logo" width={32} height={32} />
             <span>TecnoIncas</span>
           </Link>          <div className="hidden md:flex items-center space-x-6">
             {navLinks.map((link) => (
