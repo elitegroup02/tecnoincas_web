@@ -42,12 +42,11 @@ export default function AboutSection() {
                 ))}
               </div>
             </div>
-          </ScrollAnimation>
-          <ScrollAnimation animationClass="animate-fade-in-up" delay={200}>
-            <div className="flex justify-center items-center mt-12 lg:mt-0">
-              <div className="w-64 h-64 sm:w-80 sm:h-80 relative">
+          </ScrollAnimation>          <ScrollAnimation animationClass="animate-fade-in-up" delay={200}>
+            <div className="flex justify-center items-center mt-8 lg:mt-0">
+              <div className="w-48 h-48 sm:w-56 sm:h-56 md:w-64 md:h-64 lg:w-80 lg:h-80 relative">
                 <div className="inca-chakana-about absolute inset-0 opacity-80 animate-pulse-slow"></div>
-                 {/* Placeholder for a more complex Inca-themed visual */}
+                 {/* Enhanced Inca-themed visual for about section */}
               </div>
             </div>
           </ScrollAnimation>

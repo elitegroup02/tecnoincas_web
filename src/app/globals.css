@@ -142,67 +142,360 @@
 }
 
 /* Base body styles */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 6rem; /* Account for fixed header */
+}
+
 body {
   background-color: var(--background);
   color: var(--text-primary);
   font-family: theme(fontFamily.primary);
 }
 
+/* Ensure all sections have proper scroll margin */
+section[id] {
+  scroll-margin-top: 6rem;
+}
+
 /* Inca-inspired designs */
 .inca-sun {
   width: 100%;
   height: 100%;
-  background: linear-gradient(135deg, var(--primary), var(--accent), var(--primary-dark));
+  background:
+    radial-gradient(circle at center, var(--accent) 0%, var(--accent) 8%, transparent 8%, transparent 12%, var(--primary) 12%, var(--primary) 25%, var(--primary-dark) 25%, var(--primary-dark) 45%, rgba(0,0,0,0.1) 45%);
   border-radius: 50%;
   position: relative;
+  overflow: hidden;
+  box-shadow:
+    inset 0 0 20px rgba(0,0,0,0.3),
+    0 0 30px rgba(255,215,0,0.4);
 }
 
 .inca-sun::before {
   content: '';
   position: absolute;
-  top: 10%;
-  left: 10%;
-  right: 10%;
-  bottom: 10%;
-  background: conic-gradient(from 0deg, transparent 0deg, var(--primary) 30deg, transparent 60deg, var(--accent) 90deg, transparent 120deg, var(--primary) 150deg, transparent 180deg, var(--accent) 210deg, transparent 240deg, var(--primary) 270deg, transparent 300deg, var(--accent) 330deg, transparent 360deg);
+  top: 50%;
+  left: 50%;
+  width: 140%;
+  height: 140%;
+  transform: translate(-50%, -50%);
+  background:
+    conic-gradient(from 0deg,
+      var(--primary) 0deg 15deg,
+      transparent 15deg 30deg,
+      var(--primary) 30deg 45deg,
+      transparent 45deg 60deg,
+      var(--primary) 60deg 75deg,
+      transparent 75deg 90deg,
+      var(--primary) 90deg 105deg,
+      transparent 105deg 120deg,
+      var(--primary) 120deg 135deg,
+      transparent 135deg 150deg,
+      var(--primary) 150deg 165deg,
+      transparent 165deg 180deg,
+      var(--primary) 180deg 195deg,
+      transparent 195deg 210deg,
+      var(--primary) 210deg 225deg,
+      transparent 225deg 240deg,
+      var(--primary) 240deg 255deg,
+      transparent 255deg 270deg,
+      var(--primary) 270deg 285deg,
+      transparent 285deg 300deg,
+      var(--primary) 300deg 315deg,
+      transparent 315deg 330deg,
+      var(--primary) 330deg 345deg,
+      transparent 345deg 360deg
+    );
+  opacity: 0.9;
+  filter: drop-shadow(0 0 10px rgba(255,215,0,0.3));
+}
+
+.inca-sun::after {
+  content: '';
+  position: absolute;
+  top: 35%;
+  left: 35%;
+  width: 30%;
+  height: 30%;
+  background:
+    radial-gradient(circle,
+      var(--accent) 0%,
+      var(--accent-dark) 30%,
+      transparent 70%
+    );
   border-radius: 50%;
-  opacity: 0.7;
+  box-shadow:
+    0 0 15px var(--accent),
+    inset 0 0 10px rgba(0,0,0,0.2);
 }
 
 .inca-chakana {
   width: 100%;
   height: 100%;
-  background: linear-gradient(45deg, var(--accent), var(--primary));
-  clip-path: polygon(40% 0%, 60% 0%, 60% 40%, 100% 40%, 100% 60%, 60% 60%, 60% 100%, 40% 100%, 40% 60%, 0% 60%, 0% 40%, 40% 40%);
+  background:
+    linear-gradient(45deg,
+      var(--primary) 0%,
+      var(--primary-dark) 25%,
+      var(--accent) 50%,
+      var(--primary-dark) 75%,
+      var(--primary) 100%
+    );
+  position: relative;
+  clip-path: polygon(
+    40% 0%, 60% 0%,
+    60% 30%, 85% 30%, 100% 30%, 100% 40%,
+    85% 40%, 60% 40%, 60% 60%,
+    85% 60%, 100% 60%, 100% 70%,
+    85% 70%, 60% 70%, 60% 100%,
+    40% 100%, 40% 70%,
+    15% 70%, 0% 70%, 0% 60%,
+    15% 60%, 40% 60%, 40% 40%,
+    15% 40%, 0% 40%, 0% 30%,
+    15% 30%, 40% 30%
+  );
+  filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));
+}
+
+.inca-chakana::before {
+  content: '';
+  position: absolute;
+  top: 40%;
+  left: 40%;
+  width: 20%;
+  height: 20%;
+  background:
+    radial-gradient(circle,
+      var(--accent) 0%,
+      var(--accent-dark) 70%,
+      transparent 100%
+    );
+  border-radius: 50%;
+  box-shadow:
+    0 0 8px var(--accent),
+    inset 0 0 4px rgba(0,0,0,0.3);
+}
+
+.inca-chakana::after {
+  content: '';
+  position: absolute;
+  top: 45%;
+  left: 45%;
+  width: 10%;
+  height: 10%;
+  background: var(--primary-dark);
+  border-radius: 50%;
+  box-shadow: inset 0 0 3px rgba(0,0,0,0.5);
 }
 
 .inca-center {
   width: 100%;
   height: 100%;
-  background: radial-gradient(circle, var(--primary-dark), transparent);
+  background:
+    radial-gradient(circle,
+      var(--primary-dark) 0%,
+      var(--primary) 40%,
+      var(--accent) 70%,
+      transparent 100%
+    );
   border-radius: 50%;
+  position: relative;
+  box-shadow:
+    0 0 20px rgba(255,215,0,0.4),
+    inset 0 0 10px rgba(0,0,0,0.2);
+}
+
+.inca-center::before {
+  content: '';
+  position: absolute;
+  top: 25%;
+  left: 25%;
+  width: 50%;
+  height: 50%;
+  background:
+    radial-gradient(circle,
+      var(--accent) 0%,
+      transparent 60%
+    );
+  border-radius: 50%;
+  animation: pulse-glow 3s ease-in-out infinite;
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
 }
 
 .inca-chakana-about {
   width: 100%;
   height: 100%;
-  background: linear-gradient(135deg, var(--primary), var(--accent));
-  clip-path: polygon(30% 0%, 70% 0%, 70% 30%, 100% 30%, 100% 70%, 70% 70%, 70% 100%, 30% 100%, 30% 70%, 0% 70%, 0% 30%, 30% 30%);
+  background:
+    linear-gradient(135deg,
+      var(--primary) 0%,
+      var(--primary-dark) 30%,
+      var(--accent) 60%,
+      var(--primary-dark) 80%,
+      var(--primary) 100%
+    );
+  position: relative;
+  clip-path: polygon(
+    35% 0%, 65% 0%,
+    65% 25%, 85% 25%, 100% 25%, 100% 35%,
+    85% 35%, 65% 35%, 65% 65%,
+    85% 65%, 100% 65%, 100% 75%,
+    85% 75%, 65% 75%, 65% 100%,
+    35% 100%, 35% 75%,
+    15% 75%, 0% 75%, 0% 65%,
+    15% 65%, 35% 65%, 35% 35%,
+    15% 35%, 0% 35%, 0% 25%,
+    15% 25%, 35% 25%
+  );
+  filter: drop-shadow(0 6px 12px rgba(0,0,0,0.4));
 }
 
-/* Legacy Inca-themed geometric patterns (for backward compatibility) */
-.inca-pattern-1 {
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(135deg, var(--primary), var(--accent));
-  clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+.inca-chakana-about::before {
+  content: '';
+  position: absolute;
+  top: 35%;
+  left: 35%;
+  width: 30%;
+  height: 30%;
+  background:
+    linear-gradient(45deg,
+      var(--accent) 0%,
+      var(--accent-dark) 100%
+    );
+  border: 3px solid var(--primary-dark);
+  transform: rotate(45deg);
+  box-shadow:
+    0 0 15px var(--accent),
+    inset 0 0 8px rgba(0,0,0,0.3);
 }
 
-.inca-pattern-2 {
+.inca-chakana-about::after {
+  content: '';
+  position: absolute;
+  top: 42.5%;
+  left: 42.5%;
+  width: 15%;
+  height: 15%;
+  background: var(--primary-dark);
+  border-radius: 50%;
+  box-shadow:
+    0 0 8px var(--primary),
+    inset 0 0 4px rgba(0,0,0,0.5);
+}
+
+/* Additional Inca Patterns for Enhanced Authenticity */
+
+.inca-stepped-pyramid {
   width: 100%;
   height: 100%;
-  background: linear-gradient(225deg, var(--primary), var(--accent));
-  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  position: relative;
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+}
+
+.inca-stepped-pyramid::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  height: 20%;
+  background: var(--primary-dark);
+  clip-path: polygon(
+    20% 100%, 80% 100%, 75% 0%, 25% 0%
+  );
+}
+
+.inca-stepped-pyramid::after {
+  content: '';
+  position: absolute;
+  bottom: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 70%;
+  height: 20%;
+  background: var(--primary);
+  clip-path: polygon(
+    15% 100%, 85% 100%, 75% 0%, 25% 0%
+  );
+  box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.inca-textile-pattern {
+  width: 100%;
+  height: 100%;
+  background:
+    repeating-linear-gradient(
+      45deg,
+      var(--primary) 0px,
+      var(--primary) 8px,
+      var(--accent) 8px,
+      var(--accent) 16px,
+      var(--primary-dark) 16px,
+      var(--primary-dark) 24px
+    );
+  position: relative;
+  filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
+}
+
+.inca-textile-pattern::before {
+  content: '';
+  position: absolute;
+  inset: 20%;
+  background:
+    repeating-linear-gradient(
+      -45deg,
+      transparent 0px,
+      transparent 4px,
+      var(--accent-dark) 4px,
+      var(--accent-dark) 8px
+    );
+  opacity: 0.7;
+}
+
+.inca-quipu-knots {
+  width: 100%;
+  height: 100%;
+  background: var(--primary);
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.inca-quipu-knots::before {
+  content: '';
+  position: absolute;
+  top: 10%;
+  left: 20%;
+  right: 20%;
+  height: 2px;
+  background: var(--primary-dark);
+  box-shadow:
+    0 20% 0 var(--primary-dark),
+    0 40% 0 var(--primary-dark),
+    0 60% 0 var(--primary-dark),
+    0 80% 0 var(--primary-dark);
+}
+
+.inca-quipu-knots::after {
+  content: '●●●●●';
+  position: absolute;
+  top: 15%;
+  left: 30%;
+  color: var(--accent);
+  font-size: 12px;
+  line-height: 20px;
+  letter-spacing: 8px;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.3);
 }
 
 /* Ensure html and body take full height for sticky footer if needed */
@@ -233,25 +526,25 @@ main {
 
   /* Basic section styling */
   .section-padding {
-    @apply py-16 md:py-24;
+    @apply py-12 md:py-16 lg:py-24;
   }
 
   .section-header {
-    @apply text-center mb-12 md:mb-16;
+    @apply text-center mb-8 md:mb-12 lg:mb-16;
   }
 
   .section-title {
-    @apply text-3xl md:text-4xl font-semibold mb-4;
+    @apply text-2xl md:text-3xl lg:text-4xl font-semibold mb-4;
   }
 
   .section-subtitle {
-    @apply text-lg md:text-xl max-w-2xl mx-auto;
+    @apply text-base md:text-lg lg:text-xl max-w-2xl mx-auto px-4;
     color: var(--text-secondary);
   }
 
-  /* Button variants */
+  /* Button variants - Mobile-first approach */
   .btn {
-    @apply inline-flex items-center justify-center gap-2 px-6 py-3 border border-transparent rounded-md font-medium text-base transition-colors duration-150 ease-in-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2;
+    @apply inline-flex items-center justify-center gap-2 px-4 py-2.5 md:px-6 md:py-3 border border-transparent rounded-md font-medium text-sm md:text-base transition-colors duration-150 ease-in-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 min-h-[44px];
   }
 
   .btn-primary {
@@ -261,6 +554,7 @@ main {
 
   .btn-primary:hover {
     background: linear-gradient(to right, var(--primary-dark), var(--primary));
+    transform: translateY(-1px);
   }
 
   .btn-secondary {
@@ -272,18 +566,21 @@ main {
   .btn-secondary:hover {
     color: var(--primary);
     border-color: var(--primary);
+    transform: translateY(-1px);
   }
 
   .btn-icon {
-    @apply p-0 w-10 h-10 rounded-full disabled:opacity-60 disabled:cursor-not-allowed;
+    @apply p-0 w-11 h-11 md:w-10 md:h-10 rounded-full disabled:opacity-60 disabled:cursor-not-allowed;
     background-color: var(--surface-variant);
     border: 1px solid var(--border);
+    min-height: 44px; /* Touch-friendly minimum size */
   }
 
   .btn-icon:hover:not(:disabled) {
     background-color: var(--primary);
     color: white;
     border-color: var(--primary);
+    transform: translateY(-1px);
   }
 
   /* Header scroll effect */
@@ -291,12 +588,12 @@ main {
     @apply shadow-md bg-opacity-95 backdrop-blur-md;
   }
 
-  /* Mobile menu open */
+  /* Mobile menu open - Better hamburger animation */
   .mobile-menu-open .hamburger span:first-child {
     @apply rotate-45 translate-y-[7px];
   }
   .mobile-menu-open .hamburger span:nth-child(2) {
-    @apply opacity-0;
+    @apply opacity-0 scale-0;
   }
   .mobile-menu-open .hamburger span:last-child {
     @apply -rotate-45 -translate-y-[7px];
@@ -304,7 +601,7 @@ main {
 
   /* Service card hover effect */
   .service-card {
-    @apply relative;
+    @apply relative transition-transform duration-300 ease-in-out;
   }
 
   .service-card::before {
@@ -312,8 +609,15 @@ main {
     @apply absolute top-0 left-0 right-0 h-1 scale-x-0 transition-transform duration-250 ease-in-out;
     background: linear-gradient(to right, var(--primary), var(--accent));
   }
+
   .service-card:hover::before {
     @apply scale-x-100;
+  }
+
+  @media (hover: hover) {
+    .service-card:hover {
+      @apply transform -translate-y-1;
+    }
   }
 
   /* Animations for scroll effects */
@@ -327,4 +631,247 @@ main {
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+/* Mobile and Tablet Responsive Enhancements */
+
+/* Improve touch targets and spacing on mobile */
+@media (max-width: 768px) {
+  .container {
+    @apply px-4;
+  }
+
+  /* Better scroll offset for mobile */
+  html {
+    scroll-padding-top: 5rem;
+  }
+
+  section[id] {
+    scroll-margin-top: 5rem;
+  }
+
+  /* Improve Inca pattern visibility on smaller screens */
+  .inca-sun, .inca-chakana, .inca-chakana-about {
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.4));
+  }
+
+  /* Ensure patterns are touch-friendly */
+  .inca-sun::before {
+    width: 130%;
+    height: 130%;
+  }
+
+  /* Mobile-optimized animations */
+  .animate-pulse-gentle, .animate-rotate-slow {
+    animation-duration: 6s;
+  }
+
+  /* Better mobile menu */
+  .mobile-menu-open {
+    @apply overflow-hidden;
+  }
+
+  /* Improve mobile text readability */
+  .section-title {
+    @apply leading-tight;
+  }
+
+  .section-subtitle {
+    @apply text-sm leading-relaxed;
+  }
+
+  /* Better mobile button spacing */
+  .btn {
+    @apply w-full sm:w-auto;
+  }
+
+  /* Mobile-friendly service cards */
+  .service-card {
+    @apply p-4;
+  }
+}
+
+/* Tablet optimizations */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .inca-sun::before {
+    width: 135%;
+    height: 135%;
+  }
+
+  .section-padding {
+    @apply py-14;
+  }
+}
+
+/* Larger mobile phones */
+@media (max-width: 480px) {
+  .section-padding {
+    @apply py-8;
+  }
+
+  .section-header {
+    @apply mb-6;
+  }
+
+  .inca-chakana-about::before {
+    border-width: 2px;
+  }
+
+  /* Smaller Inca patterns for very small screens */
+  .inca-sun::after {
+    top: 38%;
+    left: 38%;
+    width: 24%;
+    height: 24%;
+  }
+
+  .inca-chakana::before {
+    top: 42%;
+    left: 42%;
+    width: 16%;
+    height: 16%;
+  }
+}
+
+/* Very short screens adjustments */
+@media (max-height: 600px) {
+  #home {
+    min-height: calc(100vh - 4rem) !important;
+    padding-top: 6rem !important;
+  }
+
+  .section-padding {
+    @apply py-8;
+  }
+}
+
+/* Improve accessibility and reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  .animate-pulse-gentle,
+  .animate-rotate-slow,
+  .pulse-glow,
+  .service-card {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .btn:hover,
+  .btn-icon:hover,
+  .service-card:hover {
+    transform: none !important;
+  }
+}
+
+/* =============================================================================
+   ACCESSIBILITY IMPROVEMENTS
+   ============================================================================= */
+
+/* Enhanced focus styles for better keyboard navigation */
+*:focus {
+  outline: 2px solid hsl(var(--primary));
+  outline-offset: 2px;
+}
+
+/* Screen reader only content */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Skip to main content link */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 6px;
+  background: hsl(var(--primary));
+  color: white;
+  padding: 8px;
+  border-radius: 4px;
+  text-decoration: none;
+  z-index: 1000;
+  font-weight: 600;
+}
+
+.skip-link:focus {
+  top: 6px;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .inca-sun,
+  .inca-chakana,
+  .inca-center,
+  .inca-chakana-about,
+  .inca-stepped-pyramid,
+  .inca-textile-pattern,
+  .inca-quipu-knots {
+    filter: contrast(1.5);
+    border: 2px solid currentColor;
+  }
+
+  .btn {
+    border: 2px solid currentColor;
+  }
+}
+
+/* Enhanced button focus styles */
+.btn:focus-visible {
+  outline: 3px solid hsl(var(--primary));
+  outline-offset: 2px;
+  box-shadow: 0 0 0 2px white, 0 0 0 5px hsl(var(--primary));
+}
+
+/* Interactive element minimum touch target */
+button,
+input[type="button"],
+input[type="submit"],
+input[type="reset"],
+a[role="button"],
+[role="button"] {
+  min-height: 44px;
+  min-width: 44px;
+}
+
+/* Form error states */
+input:invalid:not(:focus):not(:placeholder-shown),
+textarea:invalid:not(:focus):not(:placeholder-shown) {
+  border-color: hsl(var(--error, 0 84% 60%));
+  box-shadow: 0 0 0 1px hsl(var(--error, 0 84% 60%));
+}
+
+/* Loading states */
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.loading {
+  animation: spin 1s linear infinite;
+}
+
+/* =============================================================================
+   PERFORMANCE OPTIMIZATIONS
+   ============================================================================= */
+
+/* GPU acceleration for animations */
+.animate-pulse-glow,
+.inca-sun,
+.inca-chakana,
+.inca-center {
+  will-change: transform, opacity;
+  transform: translateZ(0);
+}
+
+/* Optimize font rendering */
+html {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }

@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import './globals.css';
 
 import Footer from '@/components/layout/footer';
@@ -26,6 +26,11 @@ export const metadata: Metadata = {
     "Modern software solutions built with ancient wisdom and cutting-edge technology.",
   keywords:
     "software development, web development, mobile apps, TecnoIncas, Next.js, React",
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
 };
 
 export default function RootLayout({
