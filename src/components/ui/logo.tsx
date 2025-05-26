@@ -78,7 +78,8 @@ const SVGComponent: React.FC<LogoProps> = ({
       fill={colors.dark}
       fillOpacity={0.012}
       d="m124.46 124.425.428-.089-1.12 1.527-.258-.242.007-.52z"
-      />    </svg>
+      />
+    </svg>
   );
 };
 

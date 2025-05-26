@@ -47,10 +47,6 @@ web_modules/
 # Parcel
 .cache/
 
-# Gatsby files
-.cache/
-public/
-
 # Next.js files
 .next/
 out/

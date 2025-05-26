@@ -1,0 +1,55 @@
+# Robots.txt for TecnoIncas - Software Development Website
+# https://tecnoincas.com/robots.txt
+
+# Allow all web crawlers access to the entire website
+User-agent: *
+Allow: /
+
+# Specific rules for major search engines
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Slurp
+Allow: /
+Crawl-delay: 2
+
+# Block potentially sensitive or unnecessary directories
+# (Note: Adjust these based on your actual file structure)
+Disallow: /api/
+Disallow: /_next/static/chunks/
+Disallow: /admin/
+Disallow: /.well-known/
+Disallow: /temp/
+Disallow: /tmp/
+
+# Allow access to important static assets
+Allow: /favicon.ico
+Allow: /logo.svg
+Allow: /_next/static/css/
+Allow: /_next/static/js/
+Allow: /public/
+
+# Sitemap location (update this URL when you create your sitemap)
+Sitemap: https://tecnoincas.com/sitemap.xml
+
+# Additional crawl directives for better SEO
+# Allow crawling of important pages and sections
+Allow: /services/
+Allow: /about/
+Allow: /contact/
+Allow: /demo/
+
+# Rate limiting to prevent server overload
+# Most crawlers respect these suggestions
+Request-rate: 1/5s
+
+# Note for developers:
+# - This robots.txt allows full crawling of the public website
+# - Update the Sitemap URL once you create an XML sitemap
+# - Consider adding specific Allow/Disallow rules as your site grows
+# - Monitor crawl activity in Google Search Console
